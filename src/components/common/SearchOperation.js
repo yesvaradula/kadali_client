@@ -14,6 +14,8 @@ import {
   CRow,
 } from '@coreui/react'
 
+import FileReaderComponent from './FileReaderComponent'
+
 const SearchOperation = (props) => {
   let [searchTerm, setSearchTerm] = useState(() =>
     props.value ? (props.value !== undefined ? props.value : '') : '',
@@ -53,6 +55,9 @@ const SearchOperation = (props) => {
                 <CButton color="secondary" type="button" onClick={clearSearch}>
                   Reset
                 </CButton>
+              </div>
+              <div className="col-sm-3">
+                <FileReaderComponent />
               </div>
             </CRow>
           </CCardHeader>

@@ -602,6 +602,7 @@ const Products = (props) => {
             actBy={addFilters}
             value={searchTerm}
           />
+          
         </CCol>
         <CCol xs={12}>
           {selectedProductLength ? operationsTab() : <></>}
