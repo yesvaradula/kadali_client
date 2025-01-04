@@ -1,0 +1,272 @@
+// Here you can add other styles
+
+.sub_cat_heading {
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.image-border {
+  object-fit: cover;
+  width:100%; 
+  height:100%;
+}
+
+.set-150 {
+  width: 150px;
+  height: 150px;
+}
+
+.pdfclass {
+  height: 500px;
+  padding: 5px;
+  float: left;
+  margin-right: 25px;
+  margin-bottom: 15px;
+  width: 300px;
+  border: 1px solid #ccc;
+  font-weight: 600;
+}
+
+table.table th {
+  font-weight: 700;
+}
+table.prlist td {
+  vertical-align: middle;
+  padding: 10px !important;
+}
+
+table td.money,
+th.money {
+  text-align: right;
+  padding-right: 50px;
+}
+
+div.lh-3 {
+  line-height: 3px;
+}
+
+table td.alignLeft, div.alignLeft {
+  text-align: left;
+  font-weight: 800;
+  padding-right: 30px;
+}
+
+table td.alignright, div.alignright {
+  text-align: right;
+  font-weight: 800;
+  padding-right: 30px;
+}
+
+.fw800 {
+  font-weight: 800;
+}
+
+div.printRight {
+  float: right;
+  padding-top: 100px;
+  text-align: right;
+}
+
+div.caption {
+  font-size: 12px;
+  font-family: 'Helvetica Neue', Helvetica, Arial;
+}
+
+.pagebreak {
+  break-after: always !important;
+  page-break-after: always !important;
+  page-break-inside: avoid !important;
+}
+
+.cricon {
+  height: 30px;
+  width: 30px;
+}
+
+/** custom for fieldset **/
+fieldset {
+  border: 1px solid #ccc !important;
+  padding: 0 1.4em 1.4em 1.4em !important;
+  margin: 0 0 1.5em 0 !important;
+  // box-shadow: 1px 1px 1px 1px #ccc;
+  border-radius: 6px;
+}
+
+legend {
+  padding: 9px 10px;
+  font-size: 14px;
+  width: auto;
+  margin-top: -21px;
+  font-weight: 800;
+}
+
+hr {
+  color: #ccc;
+}
+
+.logo {
+  display: inline;
+  text-align: center;
+}
+
+.logo-color {
+  background-color: #193a59
+}
+
+.textright {
+  text-align: right
+}
+
+.textColorWhite {
+  color: #fff
+}
+
+.addressclass {
+  font-weight: 800;
+  text-align: center;
+}
+
+.fbold {
+  font-weight: 800;
+}
+
+.fitalic {
+  font-style: italic;
+}
+
+.addressTable {
+  padding: 0px;
+  width: 100%;
+}
+
+.addressTable td, .addressTable th {
+  padding-left: 10px;
+  border: 1px solid;
+}
+
+.addressTable th {
+  font-weight: 700;
+}
+
+.m-10imp {
+  margin-top: 10px !important
+}
+
+.message {  
+  border: 1px solid #000;
+  padding: 13px;
+  background: #fff;
+  margin: auto;
+  text-align: center;
+}
+
+.error-message {
+  color: darkred;
+  padding-top: 6px;
+  border: 1px solid;
+  text-align: center;
+  background: #ccc;
+  font-weight: 600;
+}
+
+.center-content {
+  text-align: center;
+}
+
+.white-color {
+  color: #fff;
+}
+
+
+.automargin {
+  // margin: auto;
+  // float: left;
+  page-break-after: always;
+}
+
+.preview-qrcode {
+float: left;
+}
+
+.preview-qrdata {
+float: right;
+}
+
+@media print {
+  body {
+    -webkit-print-color-adjust: exact; 
+    
+    text-align: center;
+  }
+
+  .printqr-td {
+    margin-top: 15px;
+  }
+
+
+.printqr {    
+  width: 250px;
+  margin-top: 10px;
+  font-size: 13px;
+  height: 5px;
+}
+ .preview-qrcode {
+    float: left;
+   }
+    
+   .preview-qrdata {
+    float: right;
+   }
+
+  .hideinprint {
+    display: none;
+  }
+
+  .logo-color {
+    background-color: #193a59 !important;
+  }
+
+  .printtable {
+    font-size: 16px;
+    
+  }
+
+  .addressTable {
+    line-height: 20px;
+  }
+
+}
+
+.printdiv table {
+  line-height: 18px;
+}
+
+.printtable td, .printtable th {
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.printdiv hr {
+  color: #1b0aa7;
+    height: 5px;
+    /* margin-top: -71px; */
+    align-content: center;
+    width: 977px;
+}
+
+.columnLeft {
+  float: left;
+  text-align: left;
+}
+
+.tblheader {
+  margin-left: auto;
+  // width: 95%;
+  align-items: center;
+}
+
+.donotdisplay {
+  display: none;
+  visibility: hidden;
+}
