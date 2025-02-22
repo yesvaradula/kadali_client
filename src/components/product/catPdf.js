@@ -136,6 +136,10 @@ const CategoryListPDF = (props) => {
     await getListByCategory(e.target.value)
   }
 
+  const truncateText = (text, maxLength = 32) => {
+    return text.length > maxLength ? text.substring(0, maxLength) + '...' : text
+  }
+
   const exportToPdf = async () => {
     setFullLoading(true)
     const doc = new jsPDF()
@@ -144,8 +148,9 @@ const CategoryListPDF = (props) => {
     for (const subcategory in groupedProducts) {
       let yPosition = 20 // Reset position for new page
       let columnX = [10, 60, 110, 160] // X positions for four columns
-      let rowHeight = 80 // Row height
+      let rowHeight = 61 // Row height
       let productCount = 0
+      let tempY = 20
 
       // Add a new page for each subcategory (except the first one)
       if (doc.internal.pages.length > 1) {
@@ -167,7 +172,7 @@ const CategoryListPDF = (props) => {
         if (product.image) {
           try {
             const imageBase64 = await getImageBase64(product.image)
-            doc.addImage(imageBase64, 'JPEG', currentX, yPosition, 30, 30)
+            doc.addImage(imageBase64, 'JPEG', currentX, yPosition, 35, 35)
           } catch (error) {
             setFullLoading(false)
             console.error('Error loading image', error)
@@ -178,18 +183,25 @@ const CategoryListPDF = (props) => {
         if (product.code) {
           try {
             const barcodeBase64 = await getBarcodeBase64(product.code)
-            doc.addImage(barcodeBase64, 'PNG', currentX, yPosition + 20, 30, 15)
+            doc.addImage(barcodeBase64, 'PNG', currentX, yPosition + 35, 30, 15)
           } catch (error) {
             console.error('Error generating barcode', error)
           }
         }
 
         // Add product details
-        doc.setFontSize(5)
-        let x = 35
-        doc.text(`${product.name}`, currentX, yPosition + x)
-        doc.text(`${product.code}`, currentX, yPosition + x + 3)
-        doc.text(`${product.price}`, currentX, yPosition + x + 6)
+        doc.setFontSize(6)
+        let x = 50
+        doc.text(`${truncateText(product.name)}`, currentX, yPosition + x)
+        doc.text(`${product.code} - ${product.price}`, currentX, yPosition + x + 3)
+
+        let qrX = currentX // X position of barcode
+        let qrY = yPosition - 1 // Y position of barcode
+        let qrWidth = 36 // QR code width
+        let qrHeight = 57 // QR code height
+
+        doc.setDrawColor(0)
+        doc.rect(qrX - 1, qrY - 1, qrWidth + 1, qrHeight + 1)
 
         productCount++
 
@@ -199,7 +211,7 @@ const CategoryListPDF = (props) => {
         }
 
         // If yPosition exceeds page limit, add new page
-        if (yPosition > 270) {
+        if (productCount > 15) {
           doc.addPage()
           yPosition = 20
           productCount = 0 // Reset count for new page
